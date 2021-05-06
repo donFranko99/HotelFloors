@@ -13,6 +13,9 @@ namespace HotelFloors
                 int[] data = Array.ConvertAll<string, int>(input.Split(" ", StringSplitOptions.RemoveEmptyEntries), int.Parse);
                 int m = data[0];
                 int n = data[1];
+                int numberOfPeople = 0;
+                int numberOfRooms = 0;
+                double avgNumberOfPeople;
 
                 char[,] hotel = new char[m,n];
                 for (int x = 0; x < m; x++)
@@ -26,10 +29,12 @@ namespace HotelFloors
                 }
                 foreach (char item in hotel)
                 {
-                    Console.WriteLine(item);
+                    if (item == '*')
+                    {
+                        numberOfPeople++;
+                    }
                 }
-                int numberOfPeople = 0;
-                double avgNumberOfPeople;
+                
             }
         }
     }
